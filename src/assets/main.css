@@ -1,19 +1,89 @@
 @import './variables.css';
 
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
 body {
     min-height: 100vh;
-    color: var(--color-text);
-    background: var(--color-background);
-    transition:
-        color 0.5s,
-        background-color 0.5s;
+    color: var(--text-color);
     font-family: 'Montserrat', sans-serif;
+    font-size: 0.875rem;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
 #app {
-    max-width: 1920px;
     margin: 0 auto;
+}
+
+h1 {
+    font-size: 2.1875rem;
+}
+
+h3 {
+    font-size: 1.3125rem;
+    font-weight: 500;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    font-family: 'Poppins';
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+svg {
+    cursor: pointer;
+}
+
+input[type="text"] {
+    font-family: "Poppins";
+    font-size: 14px;
+    border: 1px solid #e5e5e5;
+    background-color: transparent;
+    width: 270px;
+    padding: .5rem;
+}
+
+input[type="text"]::placeholder {
+    color: var(--text-color-disabled);
+}
+
+input[type="text"]:focus {
+    outline: none;
+}
+
+/* Animations */
+.v-enter-active,
+.v-leave-active {
+    transition: opacity 0.3s ease;
+}
+.v-enter-from,
+.v-leave-to {
+    opacity: 0;
+}
+
+/* tablets */
+@media (max-width: 1200px) {
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+/* celulares */
+@media (max-width: 540px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
 }
