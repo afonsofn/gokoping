@@ -43,7 +43,10 @@
 
             <section>
                 <h3>NewsLetter</h3>
-                <input type="text" placeholder="Type Your Email">
+                <input
+                    type="text"
+                    placeholder="Type Your Email"
+                />
             </section>
         </div>
     </footer>
@@ -58,7 +61,7 @@ import MailIcon from '@/components/icons/MailIcon.vue';
 <style scoped>
 footer {
     background-color: var(--background-color-secondary);
-    height: 29.9375rem;
+    height: 479px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -67,19 +70,18 @@ footer {
 .footer-wrapper {
     display: flex;
     justify-content: space-between;
-    gap: 2rem;
+    gap: 32px;
     width: var(--content-width);
 }
 
 .footer-wrapper > section {
-    font-family: 'Poppins';
-    max-width: 18rem;
+    max-width: 288px;
 }
 
 .footer-wrapper > section li {
     display: flex;
-    gap: 1rem;
-    margin-bottom: 1rem;
+    gap: 16px;
+    margin-bottom: 16px;
     color: var(--text-color-secondary);
 }
 
@@ -88,18 +90,18 @@ a {
 }
 
 svg {
-    height: 1.1875rem;
-    width: 1.1875rem;
+    height: 19px;
+    width: 19px;
 }
 
 h3 {
-    margin-bottom: 2.125rem;
+    margin-bottom: 34px;
 }
 
 @media (max-width: 1530px) {
     .footer-wrapper {
         width: auto;
-        padding: 1.5rem 3rem;
+        padding: 24px 48px;
     }
 }
 
@@ -124,18 +126,18 @@ h3 {
     .footer-wrapper {
         display: grid;
         grid-template-columns: 1fr;
-        padding: 1.5rem;
+        padding: 24px;
     }
 
     .footer-wrapper > section li {
-        margin-bottom: .5rem;
+        margin-bottom: 8px;
     }
 
     h3 {
-        margin-bottom: 1rem;
+        margin-bottom: 16px;
     }
 
-    input[type="text"] {
+    input[type='text'] {
         width: 100%;
     }
 }

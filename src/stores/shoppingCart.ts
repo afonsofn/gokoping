@@ -1,32 +1,38 @@
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import { defineStore } from 'pinia';
-
-interface CartItem {
-    id: number;
-    name: string;
-    price: number;
-}
+import { deepEqual } from '@/utils';
+import type { ProductPayload } from '@/types';
 
 export const useShoppingCartStore = defineStore('shoppingCart', () => {
-    const items = ref<CartItem[]>([]);
-    const totalAmount = ref(0);
+    let items = ref<ProductPayload[]>([]);
+    let favoriteItems = ref<string[]>([]);
 
-    const addItem = (item: CartItem) => {
-        items.value.push(item);
-        totalAmount.value += item.price;
-    };
-    const removeItem = (item: CartItem) => {
-        const removedItem = items.value.find(
-            (storedItem) => storedItem.id === item.id
+    const addToCart = (item: ProductPayload) => {
+        const alreadyAddedIndex = items.value.findIndex(
+            (product: ProductPayload) => deepEqual({ ...product }, { ...item })
         );
 
-        if (removedItem) {
-            totalAmount.value -= removedItem.price;
-            items.value = items.value.filter(
-                (item) => item.id !== removedItem.id
-            );
-        }
+        if (alreadyAddedIndex !== -1)
+            return (items.value[alreadyAddedIndex].quantity =
+                items.value[alreadyAddedIndex].quantity + item.quantity);
+
+        items.value.push(item);
+    };
+    const manageFavoriteItems = (id: string) => {
+        favoriteItems.value = favoriteItems.value.includes(id)
+            ? favoriteItems.value.filter((item) => item !== id)
+            : [...favoriteItems.value, id];
     };
 
-    return { items, totalAmount, addItem, removeItem };
+    const totalItemsAmount = computed(() =>
+        items.value.reduce((sum, item) => sum + item.quantity, 0)
+    );
+
+    return {
+        items,
+        favoriteItems,
+        addToCart,
+        manageFavoriteItems,
+        totalItemsAmount
+    };
 });

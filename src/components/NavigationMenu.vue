@@ -53,13 +53,13 @@ const closeModal = () => (showModal.value = false);
 <style scoped>
 nav {
     display: flex;
-    gap: 3.125rem;
+    gap: 50px;
     align-items: center;
 }
 
 nav > ul {
     display: flex;
-    gap: 3.125rem;
+    gap: 50px;
 }
 
 section {
@@ -69,19 +69,23 @@ section {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: var(--modal-background-color);
+    background-color: var(--background-color-modal);
 }
 
 section > ul {
     width: 40%;
     height: 100%;
-    padding: 2rem;
+    padding: 32px;
     background-color: var(--background-color);
 }
 
 section > ul > li {
-    padding: 1rem;
-    font-size: 1.5rem;
+    padding: 16px;
+    font-size: 24px;
+}
+
+a {
+    font-weight: 500;
 }
 
 @media (max-width: 1200px) {
@@ -91,19 +95,19 @@ section > ul > li {
 
     section > ul {
         width: 50%;
-        padding: 1.5rem;
+        padding: 24px;
     }
 }
 
 @media (max-width: 540px) {
     section > ul {
         width: 60%;
-        padding: 1rem;
+        padding: 16px;
     }
 
     section > ul > li {
-        padding: 0.8rem;
-        font-size: 1.3rem;
+        padding: 12.8px;
+        font-size: 20.8px;
     }
 }
 </style>

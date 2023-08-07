@@ -3,9 +3,7 @@
         <section class="nav-section">
             <NavigationMenu />
             <GokopingLogo />
-            <div>
-                <ShoppingCart />
-            </div>
+            <ShoppingCart />
         </section>
 
         <section class="title-section">
@@ -23,14 +21,14 @@
 <script setup lang="ts">
 import GokopingLogo from '@/components/icons/GokopingLogo.vue';
 import NavigationMenu from '@/components/NavigationMenu.vue';
-import ShoppingCart from '@/components/icons/ShoppingCart.vue';
+import ShoppingCart from '@/components/ShoppingCart.vue';
 </script>
 
 <style scoped>
 header {
     position: relative;
-    height: 34.375rem;
-    padding: 2rem 4.375rem;
+    height: 550px;
+    padding: 32px 70px;
     background-color: var(--background-color);
 }
 
@@ -50,11 +48,6 @@ header {
     justify-content: flex-end;
 }
 
-svg:not(.nav-section > svg) {
-    height: 28px;
-    width: 28px;
-}
-
 .title-section {
     position: absolute;
     top: 50%;
@@ -63,8 +56,8 @@ svg:not(.nav-section > svg) {
     width: var(--content-width);
 }
 .title-section > div {
-    font-family: 'Poppins';
-    margin-top: 1.1875rem;
+    font-weight: 500;
+    margin-top: 19px;
 }
 
 .title-section a {
@@ -74,7 +67,7 @@ svg:not(.nav-section > svg) {
 @media (max-width: 1200px) {
     header {
         height: auto;
-        padding: 1.5rem 3rem;
+        padding: 24px 48px;
     }
 
     .title-section {
@@ -82,19 +75,14 @@ svg:not(.nav-section > svg) {
         transform: none;
         top: 0;
         left: 0;
-        margin-top: 3rem;
+        margin-top: 48px;
         width: auto;
     }
 }
 
 @media (max-width: 540px) {
     header {
-        padding: 1.5rem;
-    }
-
-    svg:not(.nav-section > svg) {
-        height: 24px;
-        width: 24px;
+        padding: 24px;
     }
 }
 </style>
